@@ -7,6 +7,7 @@ import {convertPdfToImage} from "~/lib/pdf2img";
 import {generateUUID} from "~/lib/utils/formatSize";
 import {prepareInstructions} from "../../constants";
 
+
 const Upload = () => {
     const { auth, isLoading, fs, ai, kv} = usePuterStore();
     const navigate = useNavigate();
@@ -63,6 +64,7 @@ const Upload = () => {
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
         console.log(data);
+        navigate(`/resume/${uuid}`);
 
     }
 
